@@ -1,0 +1,15 @@
+
+#container {
+	background-image: url("../stage.png");
+	position: relative;
+	width: 1280px;
+	height: 769px;
+}
+
+#duck {
+	position: absolute;
+	top: 250px;
+	left: 450px;
+
+}
+
