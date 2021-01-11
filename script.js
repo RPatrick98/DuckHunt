@@ -1,11 +1,14 @@
 
 var duck = document.getElementById('duck');
-var miss = document.getElementById('container');
+var miss = document.getElementById('stage');
+
 var directions = ["n", "ne", "e", "se", "s", "sw", "w", "nw"];
 var posLeft = 450;
 var posTop = 250;
-
+var counterduck = 0;
 var countermiss = 0;
+var counter = counterduck + countermiss;
+
 
 
 
@@ -13,7 +16,8 @@ var countermiss = 0;
 
 function fly() {
 	var randomItem = directions[Math.floor(Math.random() * directions.length)];
-	var counterduck = 0;
+	
+	
 	if(randomItem == "e") {
 		posLeft = posLeft + 75;
 		duck.style.left = posLeft + "px";
@@ -59,22 +63,44 @@ function fly() {
 		duck.style.top = posTop + "px";
 	}
 
+	
+
+}
+
+function teller() {
 	duck.addEventListener("click", function() {
-			counterduck++
+			counterduck++;
+			if(counterduck == 5) {
+				alert('hit');
+			}
+			
 	});
 
 	miss.addEventListener("click", function() {
-			counterduck++
+			countermiss++;
+			if(countermiss == 5) {
+				alert('miss');
+			}				
+			
 	});
+	if(counter === 20) {
+		alert('hi');
+	}
 
-	
 }
 
 
 function timefly() {
-		setInterval(function(){ fly(); }, 500);
+	setInterval(function(){ fly(); }, 100);
+	teller();
+
 }
 timefly();
+
+
+
+
+
 
 
 
